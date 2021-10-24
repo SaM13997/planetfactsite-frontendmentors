@@ -1,0 +1,97 @@
+.noDisplay {
+  display: none;
+}
+
+.yesDisplay {
+  display: block;
+}
+
+.button-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem;
+}
+
+.button-container button {
+  border: none;
+  padding: 1rem;
+  padding-block: 10px;
+  background-color: transparent;
+  color: white;
+  font-family: 'spartan',serif;
+  font-size: 10px;
+}
+
+.planet-header {
+  border-bottom: 2px #6d2ed5 solid;
+  font-family: 'spartan',serif;
+}
+
+.planet-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 2rem;
+  font-family: 'antonio',serif;
+  text-align: center;
+}
+
+.planet-main .planet-img {
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.planet-main .planet-img #img-planet {
+  width: 200px;
+}
+
+.planet-main .planet-img #img-planet-geology {
+  top: 120px;
+  left: 55px;
+}
+
+.planet-main .planet-img .geology-img {
+  display: block;
+  width: 80px;
+  left: 50%;
+  bottom: 20%;
+}
+
+.planet-main .planet-text-paragraph {
+  text-align: center;
+  font-size: 0.7rem;
+  line-height: 20px;
+  margin: 2rem;
+  font-family: 'spartan',serif;
+  color: #b3b2b2;
+  margin-top: 0px;
+}
+
+.planet-main .planet-text h1 {
+  margin-bottom: 15px;
+}
+
+.planet-main .planet-text a {
+  font-family: 'spartan',serif;
+  color: #a3a1a1;
+}
+/*# sourceMappingURL=Planet.css.map */

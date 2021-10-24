@@ -1,0 +1,109 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    img{
+        min-height: 15px;
+        align-self: center;
+    }
+    h1{
+        font-family: 'antonio';
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-bottom: 14px;
+        margin-top: 14px;
+    }
+
+}
+li{
+    cursor: pointer;
+}
+
+.noDisplay{
+    display: none;   
+    transition: all;
+    transition-duration: 300ms;
+}
+.noListDisplay{
+    display: none;   
+    transition: all;
+    transition-duration: 300ms;
+}
+.yesDisplay{
+    display: flex;
+    transition: all;
+    transition-duration: 300ms;
+}
+
+.header-menu-overlay{
+    position:absolute;
+    height:100vh;
+    width:100vw;
+    background-color: rgb(41, 37, 59);
+    margin:0;
+    padding:0;
+    z-index:10;
+    transition: all;
+    transition-duration: 300ms;
+    ul{
+        list-style: none;
+        li{
+            padding-top: 3rem;
+            border-bottom: 3px #6d2ed5 solid;
+            width: 25%;
+            
+            a{
+                text-decoration: none;
+                color: white;
+                font-family: 'spartan',serif;
+                
+            }
+        }
+    }
+}
+
+.header-menu-overlay-button{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 1rem 2rem;
+    border-radius: 5000px;
+    border:1px solid rgb(20, 18, 31);
+    font-family: 'spartan';
+    font-size: 1.3rem;
+    background-color: #6d2ed5;
+    color: white;
+}
+
+
+@media (min-width:768px) {
+    header{
+        display: flex;
+        flex-direction: column;
+    }
+    .noListDisplay{
+        display: block;
+        ul{
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            list-style: none;
+            font-family: 'roboto',serif;
+            color: rgb(165, 174, 200);
+        }
+    }
+    #hamburger-menu{
+        display: none;
+    }
+    
+}
+
+@media (min-width:1200px) {
+    header{
+        display: flex;
+        flex-direction: row;
+    }
+}
