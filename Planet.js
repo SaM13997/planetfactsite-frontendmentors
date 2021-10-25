@@ -37,7 +37,7 @@ export default function Planet(props){
             setimgVis(`noDisplay`)
             setimgSrc(`/assets/planet-${props.planet.toLowerCase()}-internal.svg`)
         }else if(currState==='surface') {
-            setimgSrc(`/assets/planet-${props.planet}.svg`)
+            setimgSrc(`/assets/planet-${props.planet.toLowerCase()}.svg`)
             setimgVis(`geology-image`)
         }
     }
