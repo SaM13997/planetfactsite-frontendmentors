@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Planet.css'
 
 export default function Planet(props){
@@ -7,7 +7,7 @@ export default function Planet(props){
     let [headerState, setHeaderState] = useState('overview')
     const [imgSrc, setimgSrc] = useState(`/assets/planet-${props.planet}.svg`)
     const [imgVis, setimgVis] = useState('noDisplay')
-
+    let curpl = currPlanet.toLowerCase();
     let planetText = {
         
         mercury:`Mercury is the smallest planet in the Solar System and the closest to the Sun. Its orbit around the Sun takes 87.97 Earth days, the shortest of all the Sun's planets. Mercury is one of four terrestrial planets in the Solar System, and is a rocky body like Earth.`,
@@ -31,13 +31,13 @@ export default function Planet(props){
     let handleImgChange = (currState) => {
         setHeaderState(currState)
         if(currState==='overview'){
-            setimgSrc(`/assets/planet-${currPlanet}.svg`)
+            setimgSrc(`/assets/planet-${curpl}.svg`)
             setimgVis(`noDisplay`)
         }else if(currState==='internal'){
             setimgVis(`noDisplay`)
-            setimgSrc(`/assets/planet-${currPlanet}internal.svg`)
+            setimgSrc(`/assets/planet-${curpl}-internal.svg`)
         }else if(currState==='surface') {
-            setimgSrc(`/assets/planet-${currPlanet}.svg`)
+            setimgSrc(`/assets/planet-${curpl}.svg`)
             setimgVis(`geology-image`)
         }
     }
