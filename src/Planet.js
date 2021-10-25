@@ -56,7 +56,7 @@ export default function Planet(props){
     
            <div className="planet-main">
                 <div className="planet-img">
-                    <img id='img-planet' className='img-planet' src={imgSrc}  alt={`${headerState} of ${currPlanet}`} />
+                    <img id='img-planet' className='img-planet' src={imgSrc} style={{height:'200px'}} alt={`${headerState} of ${currPlanet}`} />
                     
                     <img id='img-planet-geology' className={`${imgVis}`} src={`/assets/geology-${currPlanet}.png`} style={{width:'90px', position:'absolute',}} alt={`Geology of ${currPlanet}`} />
                     
