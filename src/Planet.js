@@ -31,13 +31,13 @@ export default function Planet(props){
     let handleImgChange = (currState) => {
         setHeaderState(currState)
         if(currState==='overview'){
-            setimgSrc(`/assets/planet-${props.planet.toLowerCase()}.svg`)
+            setimgSrc(`/assets/planet-${currPlanet}.svg`)
             setimgVis(`noDisplay`)
         }else if(currState==='internal'){
             setimgVis(`noDisplay`)
-            setimgSrc(`/assets/planet-${props.planet.toLowerCase()}-internal.svg`)
+            setimgSrc(`/assets/planet-${currPlanet}internal.svg`)
         }else if(currState==='surface') {
-            setimgSrc(`/assets/planet-${props.planet.toLowerCase()}.svg`)
+            setimgSrc(`/assets/planet-${currPlanet}.svg`)
             setimgVis(`geology-image`)
         }
     }
