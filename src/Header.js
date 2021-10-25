@@ -11,6 +11,11 @@ export default function Header(props){
     
     let planets=['MERCURY', 'VENUS', "EARTH", "MARS", "JUPITER","SATURN","URANUS","NEPTUNE"]
 
+    const uppercaseHelper = (str) => {
+      let strU = str.toUpperCase()
+      return strU
+    }
+
     return(
         <div class="header-main">
             <div id='planet-list-menu-overlay' className={` header-menu-overlay ${activeClass} `}>

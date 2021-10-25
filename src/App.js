@@ -3,20 +3,24 @@ import mySvg from '../src/background-stars.svg'
 import Header from './Header';
 import Planet from './Planet'
 import Info from './Info'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
 
-  let [currPlanet, setCurrPlanet] = useState('EARTH')
+  let [currPlanet, setCurrPlanet] = useState('earth')
+
 
   let handlePlanetChange = (planet) => {
-    setCurrPlanet(planet)
+    let curpl = planet.toLowerCase()
+    setCurrPlanet(curpl)
   }
+
+
 
   return(
     <div id="base" className='base' style={{ backgroundImage: `url(${mySvg})` }}
     >
-      
+
       <div className="header">
         <Header planetHandler={handlePlanetChange} />
       </div>
@@ -27,7 +31,7 @@ function App() {
         <Info key={currPlanet} planet={currPlanet} />
       </div>
     </div>
-    
+
   )
 }
 // TODO: add the hover states for the buttons
