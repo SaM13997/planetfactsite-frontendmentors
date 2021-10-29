@@ -6,6 +6,22 @@
   display: block;
 }
 
+.clicked {
+  background-color: #6d2ed5 !important;
+}
+
+.planet-base-super {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .button-container {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -22,6 +38,8 @@
 }
 
 .button-container button {
+  width: 100%;
+  font-weight: 700;
   border: none;
   padding: 1rem;
   padding-block: 10px;
@@ -29,14 +47,23 @@
   color: white;
   font-family: 'spartan',serif;
   font-size: 10px;
+  border-bottom: 3px transparent solid;
+}
+
+.button-container button:hover {
+  border-bottom: 3px #181862 solid;
 }
 
 .planet-header {
   border-bottom: 2px #6d2ed5 solid;
   font-family: 'spartan',serif;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
-.planet-main {
+.planet-base {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,30 +80,69 @@
   padding-top: 2rem;
   font-family: 'antonio',serif;
   text-align: center;
-}
-
-.planet-main .planet-img {
-  margin-bottom: 4rem;
   position: relative;
 }
 
-.planet-main .planet-img #img-planet {
+.planet-base .planet-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.planet-base .planet-img-sub {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  position: relative;
   width: 200px;
 }
 
-.planet-main .planet-img #img-planet-geology {
+.planet-base .planet-img-sub #img-planet {
+  width: 200px;
+  height: 200px;
+}
+
+@media (min-width: 768px) {
+  .planet-base .planet-img-sub #img-planet {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+.planet-base .planet-img-sub #img-planet-geology {
+  position: absolute;
   top: 120px;
-  left: 55px;
+  left: 50px;
+  width: 100px;
+  height: 110px;
 }
 
-.planet-main .planet-img .geology-img {
+@media (min-width: 768px) {
+  .planet-base .planet-img-sub #img-planet-geology {
+    top: 240px;
+    left: 16px;
+    width: 170px;
+    height: 200px;
+  }
+}
+
+.planet-base .planet-img-sub .geology-img {
   display: block;
-  width: 80px;
-  left: 50%;
-  bottom: 20%;
 }
 
-.planet-main .planet-text-paragraph {
+.planet-base .planet-text-paragraph {
   text-align: center;
   font-size: 0.7rem;
   line-height: 20px;
@@ -86,12 +152,226 @@
   margin-top: 0px;
 }
 
-.planet-main .planet-text h1 {
+.planet-base .planet-text h1 {
   margin-bottom: 15px;
 }
 
-.planet-main .planet-text a {
+.planet-base .planet-text a {
   font-family: 'spartan',serif;
   color: #a3a1a1;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .planet-base {
+    width: 90%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(0, 1fr))[2];
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    -ms-grid-rows: minmax(0, 5fr) minmax(0, 3fr);
+        grid-template-rows: minmax(0, 5fr) minmax(0, 3fr);
+        grid-template-areas: 'img img' 'plText headerOptions';
+  }
+  .planet-header {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: headerOptions;
+    border-bottom: none;
+    padding-top: 10px;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    padding-right: 0;
+    margin-right: 0;
+  }
+  .planet-header .button-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 2rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-right: 0;
+  }
+  .planet-header .button-container button {
+    border: 1px #747277 solid;
+    padding-inline: 7rem;
+    padding-block: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .planet-header .button-container button .button-clicked {
+    background-color: #d83a34;
+  }
+  .planet-img {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: img;
+  }
+  .planet-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: plText;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  .planet-text .planet-text-paragraph {
+    margin-inline: 0;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .planet-base {
+    display: -ms-grid;
+    display: grid;
+    height: 70vh;
+    -ms-grid-columns: minmax(0, 3fr) minmax(0, 2fr);
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    -ms-grid-rows: (minmax(0, 1fr))[2];
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        grid-template-areas: 'image text'  'image header';
+  }
+  .planet-text-paragraph {
+    text-align: start !important;
+    font-size: 0.7rem;
+    line-height: 20px;
+    margin: 2rem;
+    font-family: 'spartan',serif;
+    color: #b3b2b2;
+    margin-inline: 0 !important;
+  }
+  .planet-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  .planet-text a {
+    font-family: 'spartan',serif;
+    color: #a3a1a1;
+  }
+  .planet-text p {
+    margin: 0;
+  }
+  .planet-header {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: header;
+    border-bottom: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .planet-header .button-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 2rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0;
+  }
+  .planet-header .button-container button {
+    border: 1px #747277 solid;
+    padding-inline: 7rem;
+    padding-block: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .planet-header .button-container button .button-clicked {
+    background-color: #d83a34;
+  }
+  .planet-img {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+    grid-area: image;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .planet-img-sub {
+    display: -ms-grid;
+    display: grid;
+    place-content: center;
+    margin: 0;
+    position: relative;
+    width: 200px;
+  }
+  .planet-img-sub #img-planet {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 1024px) and (min-width: 768px) {
+  .planet-img-sub #img-planet {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .planet-img-sub #img-planet-geology {
+    position: absolute;
+    top: 120px;
+    left: 50px;
+    width: 100px;
+    height: 110px;
+  }
+}
+
+@media (min-width: 1024px) and (min-width: 768px) {
+  .planet-img-sub #img-planet-geology {
+    top: 240px;
+    left: 16px;
+    width: 170px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .planet-img-sub .geology-img {
+    display: block;
+  }
 }
 /*# sourceMappingURL=Planet.css.map */

@@ -20,21 +20,23 @@ function App() {
   return(
     <div id="base" className='base' style={{ backgroundImage: `url(${mySvg})` }}
     >
-
-      <div className="header">
-        <Header planetHandler={handlePlanetChange} />
+      <div className="base-subwrapper">
+  
+        <div className="header">
+          <Header planetHandler={handlePlanetChange} />
+        </div>
+        <div className="planet">
+          <Planet key={currPlanet} planet={currPlanet}/>
+        </div>
+        <div className="info">
+          <Info key={currPlanet} planet={currPlanet} />
+        </div>
       </div>
-      <div className="planet">
-        <Planet key={currPlanet} planet={currPlanet}/>
-      </div>
-      <div className="info">
-        <Info key={currPlanet} planet={currPlanet} />
-      </div>
-    </div>
+    </div>  
 
   )
 }
-// TODO: add the hover states for the buttons
-// TODO: add css to Info comp elements
+// TODO: add the hover states for the buttons --DONE
+// TODO: add css to Info comp elements --DONE
 // todo add animations with anime.js
 export default App;

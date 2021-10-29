@@ -8,6 +8,16 @@
     display: block;
 }
 
+.clicked{
+    background-color: #6d2ed5 !important
+}
+
+.planet-base-super{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .button-container{
     margin-top:10px;
     margin-bottom:10px;
@@ -17,6 +27,8 @@
     margin:1rem;
     button{
         // outline: 1px red solid;
+        width: 100%;
+        font-weight: 700;
         border: none;
         padding: 1rem;
         padding-block: 10px;
@@ -24,16 +36,26 @@
         color: white;
         font-family: 'spartan',serif;
         font-size: 10px;
+        border-bottom: 3px transparent solid;
 
+
+    }
+    button:hover{
+        border-bottom: 3px #181862 solid;
+        // background-color: #232355 ;
     }
 }
 
 .planet-header{
     border-bottom: 2px #6d2ed5 solid;
     font-family: 'spartan',serif;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
-.planet-main{
+.planet-base{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,23 +63,46 @@
     padding-top: 2rem;
     font-family: 'antonio',serif;
     text-align: center;
-
+    position: relative;
     .planet-img{
+        display: flex;
+        justify-content: center;align-items: center;
+    }
+    .planet-img-sub{
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        margin-top: 4rem;
         margin-bottom: 4rem;
         position: relative;
+        // background-color: #42bbb1;
+        width: 200px;
         #img-planet{
             width: 200px;
+            height: 200px;
+            @media (min-width:768px){
+                width: 400px;
+                height: 400px;
+            }
         }
         #img-planet-geology{
-        //   inset: 0;
-          top: 120px;
-          left: 55px;
+            position: absolute;
+            top: 120px; ;
+            left: 50px ;
+            width: 100px;
+            height: 110px;
+            @media (min-width:768px){
+                top: 240px; ;
+                left: 16px ;
+                width: 170px;
+                height: 200px;
+            }
         }
         .geology-img{
             display: block;
-            width: 80px;
-            left: 50%;
-            bottom: 20%;
+            // width: 80px;
+            // left: 50%;
+            // bottom: 20%;
         }
 
     }
@@ -80,4 +125,164 @@
             color: rgb(163, 161, 161);
         }
     }
+}
+
+@media (min-width:768px) and (max-width:1023px){
+    .planet-base{
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: minmax(0,5fr) minmax(0,3fr) ;
+        grid-template-areas:
+        'img img'
+        'plText headerOptions' ;
+    }
+    .planet-header{
+        grid-area: headerOptions;
+        border-bottom: none;
+        padding-top: 10px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 0;
+        margin-right: 0;
+        .button-container{
+            flex-direction: column;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            margin-right: 0;
+            button{
+                border: 1px #747277 solid;
+                padding-inline: 7rem;
+                padding-block: 1rem;
+                font-size: 0.8rem;
+                font-weight: 600;
+
+            }
+            button .button-clicked{
+                background-color: #d83a34;
+            }
+        }
+    }
+    .planet-img{
+        grid-area: img;
+    }
+    .planet-text{
+        display: flex;
+        flex-direction: column;
+        grid-area: plText;
+        align-items: start;
+        .planet-text-paragraph{
+            margin-inline:0;
+            text-align: left;
+        }
+    }
+}
+
+@media (min-width:1024px) {
+    .planet-base{
+        display: grid;
+        height: 70vh;
+        grid-template-columns: minmax(0,3fr) minmax(0,2fr);
+        grid-template-rows: repeat(2, minmax(0,1fr)) ;
+        grid-template-areas:
+        'image text' 
+        'image header'
+        ;
+    }
+    .planet-text-paragraph{
+        text-align: start !important;
+        font-size: 0.7rem;
+        line-height: 20px;
+        margin: 2rem;
+        font-family: 'spartan',serif;
+        color: rgb(179, 178, 178);
+        margin-inline: 0 !important;
+
+    }
+    .planet-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        h1{
+            // margin-bottom: 15px;
+        }
+        a{
+            font-family: 'spartan',serif;
+            color: rgb(163, 161, 161);
+        }
+        p{
+            margin: 0;
+        }
+    }
+    .planet-header{
+        grid-area: header;
+        border-bottom: none;
+        display: flex;
+        .button-container{
+            flex-direction: column;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            button{
+                border: 1px #747277 solid;
+                padding-inline: 7rem;
+                padding-block: 1rem;
+                font-size: 0.8rem;
+                font-weight: 600;
+
+            }
+            button .button-clicked{
+                background-color: #d83a34;
+            }
+        }
+    }
+    .planet-img{
+        grid-area: image;
+        display: flex;
+        align-items: center;
+    }
+    .planet-img-sub{
+        display: grid;
+        place-content: center;
+        margin: 0;
+        // margin-top: 4rem;
+        // margin-bottom: 4rem;
+        position: relative;
+        // background-color: #42bbb1;
+        width: 200px;
+        #img-planet{
+            width: 200px;
+            height: 200px;
+            @media (min-width:768px){
+                width: 400px;
+                height: 400px;
+            }
+        }
+        #img-planet-geology{
+            position: absolute;
+            top: 120px; ;
+            left: 50px ;
+            width: 100px;
+            height: 110px;
+            @media (min-width:768px){
+                top: 240px; ;
+                left: 16px ;
+                width: 170px;
+                height: 200px;
+            }
+        }
+        .geology-img{
+            display: block;
+            // width: 80px;
+            // left: 50%;
+            // bottom: 20%;
+        }
+
+    }
+    
 }

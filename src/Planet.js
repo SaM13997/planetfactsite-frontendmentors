@@ -26,7 +26,15 @@ export default function Planet(props){
         
         neptune:`Neptune is the eighth and farthest-known Solar planet from the Sun. In the Solar System, it is the fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet. It is 17 times the mass of Earth, more massive than its near-twin Uranus.`
     }
-    
+    let handleColorChange = (e) => {
+        let buttons = document.querySelectorAll('.planet-header-button')
+        buttons.forEach(button => {
+            button.classList.remove('clicked')            
+        });
+        e.target.classList.add('clicked')
+
+    }
+
     
     let handleImgChange = (currState) => {
         setHeaderState(currState)
@@ -41,32 +49,68 @@ export default function Planet(props){
             setimgVis(`geology-image`)
         }
     }
+    // let freshImgSizeSetter = () => {
+    //     if(window.innerWidth>=768){
+    //         return '400px'
+    //     }  else{
+    //         return '200px'
+    //     }
+    // }
+   
 
+    // //*state of the planet image
+    // const [imgWidth, setImgWidth] = useState(freshImgSizeSetter())
+    // const [imgHeight, setImgHeight] = useState(freshImgSizeSetter())
+
+  
+
+    // //*Updater for the above mentioned states, this is basically the js equivalent of media queries
+    // window.addEventListener('resize', () => {
+    //     if(window.innerWidth>=768){
+    //         setImgHeight('400px')
+    //         setImgWidth('400px')
+    // }  else{
+    //         setImgHeight('200px')
+    //         setImgWidth('200px')
+    //         }
+    // })
+
+    //! LEARN TAILWIND B4 STARTING ANY NEXT PROJECT, Remember This is what had to be done just for some simple media query equivalent stuff
 
     return(
-        <div className="planet-base">
+        <div className="planet-base-super">
+            <div className="planet-base">
+                
+                <div className="planet-header">
+                    <div className="button-container">
 
-            <div className="planet-header">
-                <div className="button-container">
-                    <button onClick={() => handleImgChange('overview')}> OVERVIEW </button>
-                    <button onClick={() => handleImgChange('internal')}> INTERNAL </button>
-                    <button onClick={() => handleImgChange('surface')}> SURFACE </button>
+                        <button className='planet-header-button clicked' onClick={(e) => {handleImgChange('overview');handleColorChange(e)}}> OVERVIEW </button>
+
+                        <button className='planet-header-button' onClick={(e) => {handleImgChange('internal');handleColorChange(e)}}> INTERNAL </button>
+
+                        <button className='planet-header-button' onClick={(e) => {handleImgChange('surface');handleColorChange(e)}}> SURFACE </button>
+
+                    </div>
                 </div>
-            </div>
-    
-           <div className="planet-main">
+
                 <div className="planet-img">
-                    <img id='img-planet' className='img-planet' src={imgSrc} style={{height:'200px'}} alt={`${headerState} of ${currPlanet}`} />
-                    
-                    <img id='img-planet-geology' className={`${imgVis}`} src={`/assets/geology-${currPlanet}.png`} style={{width:'90px', position:'absolute',}} alt={`Geology of ${currPlanet}`} />
-                    
+                        <div className="planet-img-sub">
+                            <img id='img-planet' className='img-planet' src={imgSrc} alt={`${headerState} of ${currPlanet}`} />
+                            {/* style={{height: imgWidth, width: imgHeight }} */}
+            
+                            <img id='img-planet-geology' className={`${imgVis}`} src={`/assets/geology-${currPlanet}.png`}  alt={`Geology of ${currPlanet}`} />
+                            {/* style={{width:absImgWidthVal,height:absImgHeightVal, position:'absolute',top:absImgTopVal, left: absImgLeftVal}} */}
+            
+                        </div>
                 </div>
+
                 <div className="planet-text">
-                    <h1>{currPlanet.toUpperCase()}</h1>
-                    <p className='planet-text-paragraph' >{planetText[currPlanet]}</p>
-                    <p className='planet-text-paragraph'>Source:   <a href={`https://en.wikipedia.org/wiki/${currPlanet}`} target='_blank'>Wikipedia</a></p>
+                        <h1>{currPlanet.toUpperCase()}</h1>
+                        <p className='planet-text-paragraph' >{planetText[currPlanet]}</p>
+                        <p className='planet-text-paragraph'>Source:   <a href={`https://en.wikipedia.org/wiki/${currPlanet}`} target='_blank'>Wikipedia</a></p>
                 </div>
-           </div>
+                
+            </div>
         </div>
     )
 }
