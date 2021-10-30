@@ -1,3 +1,7 @@
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
 .noDisplay {
   display: none;
 }
@@ -234,7 +238,7 @@
     grid-area: plText;
     -webkit-box-align: start;
         -ms-flex-align: start;
-            align-items: start;
+            align-items: flex-start;
   }
   .planet-text .planet-text-paragraph {
     margin-inline: 0;
@@ -254,7 +258,7 @@
         grid-template-areas: 'image text'  'image header';
   }
   .planet-text-paragraph {
-    text-align: start !important;
+    text-align: left !important;
     font-size: 0.7rem;
     line-height: 20px;
     margin: 2rem;
@@ -275,7 +279,7 @@
             justify-content: center;
     -webkit-box-align: start;
         -ms-flex-align: start;
-            align-items: start;
+            align-items: flex-start;
   }
   .planet-text a {
     font-family: 'spartan',serif;

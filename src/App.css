@@ -3,10 +3,15 @@
   outline: 1px red solid;
   box-sizing: border-box;
 }  */
+* {
+  -webkit-overflow-scrolling: touch;
+}
 
 body{
   /* overflow-x: hidden; */
   margin: 0%;
+  overflow-y: scroll!important;
+  -webkit-overflow-scrolling: touch!important;
 }
 
 
@@ -18,7 +23,7 @@ body{
   /* width: 100vw; */
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   color: white;
 }

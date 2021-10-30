@@ -1,3 +1,7 @@
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
