@@ -1,14 +1,10 @@
  
-/* *{
-  outline: 1px red solid;
-  box-sizing: border-box;
-}  */
+
 * {
   -webkit-overflow-scrolling: touch;
 }
 
 body{
-  /* overflow-x: hidden; */
   margin: 0%;
   overflow-y: scroll!important;
   -webkit-overflow-scrolling: touch!important;
@@ -16,11 +12,8 @@ body{
 
 
 #base{
-  background:center center no-repeat fixed;
   background-color: #070724;
-  /* background-size: cover; */
   min-height: 100vh;
-  /* width: 100vw; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -34,7 +27,6 @@ body{
   width: 100%;
 }
 .info{
-  /* width: 90%; */
   display: flex;
   justify-content: center;
   align-items: center;
