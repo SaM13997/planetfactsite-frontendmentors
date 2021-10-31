@@ -18,8 +18,8 @@ function App() {
 
 
   return(
-    <div id="base" className='base'>
-    
+    <div id="base" className='base' style={{ backgroundImage: `url(${mySvg})` }}
+    >
       <div className="base-subwrapper">
   
         <div className="header">
