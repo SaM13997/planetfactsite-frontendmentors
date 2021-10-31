@@ -3,7 +3,7 @@ import mySvg from '../src/background-stars.svg'
 import Header from './Header';
 import Planet from './Planet'
 import Info from './Info'
-import { useState, useEffect } from 'react';
+import { useState, } from 'react';
 
 function App() {
 
@@ -18,8 +18,8 @@ function App() {
 
 
   return(
-    <div id="base" className='base' style={{ backgroundImage: `url(${mySvg})` }}
-    >
+    <div id="base" className='base'>
+    
       <div className="base-subwrapper">
   
         <div className="header">
